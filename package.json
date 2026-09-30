@@ -1,0 +1,8 @@
+{
+  "name": "armadio",
+  "version": "0.1.0",
+  "description": "Armadio: tutto quello che hai, gli abbinamenti e gli outfit, per non sprecare niente.",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node --test tests/*.test.mjs", "serve": "node tools/serve.mjs" }
+}

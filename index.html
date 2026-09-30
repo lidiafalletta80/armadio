@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Armadio</title>
+  <meta name="description" content="Tutto quello che hai nell'armadio, gli abbinamenti e gli outfit, per non sprecare niente.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1c0a15" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Armadio">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+  <link rel="preload" href="fonts/roboto-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/armadio.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-piu" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-ok" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+      <symbol id="i-cestino" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12M9 7V4h6v3"/></symbol>
+      <symbol id="i-modifica" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16zM13.5 6.5l4 4"/></symbol>
+      <symbol id="i-orologio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="i-avviso" viewBox="0 0 24 24"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17h.01"/></symbol>
+      <symbol id="i-impost" viewBox="0 0 24 24"><path d="M4 6h10M20 6h0M4 12h2M12 12h8M4 18h10M20 18h0"/><circle cx="17" cy="6" r="2.5"/><circle cx="9" cy="12" r="2.5"/><circle cx="17" cy="18" r="2.5"/></symbol>
+      <symbol id="i-indietro" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+      <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+      <symbol id="i-galleria" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="1"/><circle cx="9" cy="10" r="1.6"/><path d="M4 17l5-4 4 3 3-2 4 3"/></symbol>
+      <symbol id="i-stella" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/></symbol>
+      <symbol id="i-armadio" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="17" rx="1"/><path d="M12 3v17M9.5 11v2M14.5 11v2M6 20v1.5M18 20v1.5"/></symbol>
+      <symbol id="i-attaccapanni" viewBox="0 0 24 24"><path d="M12 4a2 2 0 1 1 2 2c-1 0-2 .6-2 1.6V9M12 9L3.5 16a1.4 1.4 0 0 0 .9 2.5h15.2a1.4 1.4 0 0 0 .9-2.5z"/></symbol>
+      <symbol id="i-persona" viewBox="0 0 24 24"><circle cx="12" cy="6.5" r="3"/><path d="M6.5 21v-6a5.5 5.5 0 0 1 11 0v6"/></symbol>
+      <symbol id="i-elenco" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></symbol>
+      <symbol id="i-fiamma" viewBox="0 0 24 24"><path d="M12 3c.8 3.4 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5.3 1.5 1 2.5 2 3 .6-3-.5-5 1-8.5z"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="cima">
+    <header class="app-header">
+      <h1 class="app-title">Armadio</h1>
+      <div class="header-azioni">
+        <button type="button" class="icona-btn" id="btn-impost" aria-label="Impostazioni"><svg class="icon" aria-hidden="true"><use href="#i-impost"/></svg></button>
+      </div>
+    </header>
+    <nav class="linguette" id="linguette" aria-label="Le pagine dell'armadio">
+      <button type="button" class="lg" data-pagina="armadio" aria-current="page">Armadio</button>
+      <button type="button" class="lg" data-pagina="outfit">Outfit</button>
+      <button type="button" class="lg" data-pagina="io">Io</button>
+    </nav>
+  </div>
+
+  <main>
+    <!-- ARMADIO -->
+    <section id="vista-armadio" class="vista" aria-labelledby="titolo-armadio">
+      <div id="avviso-archivio"></div>
+      <div class="pagina">
+        <div class="titolo-home"><h2 class="vista-titolo" id="titolo-armadio" tabindex="-1">Il mio armadio</h2><p class="frase" id="armadio-sotto"></p>
+          <div class="azioni"><button type="button" class="btn btn--contorno btn--piccolo" id="btn-elenco-testo"><svg class="icon icon--s" aria-hidden="true"><use href="#i-elenco"/></svg>Scrivi l'elenco dei capi</button></div></div>
+        <section class="rip" id="fermi" hidden></section>
+        <div class="filtri-capi" id="filtri-capi" role="group" aria-label="Filtra per tipo"></div>
+        <div class="griglia-capi" id="griglia-capi"></div>
+        <div id="armadio-vuoto"></div>
+      </div>
+    </section>
+
+    <!-- OUTFIT -->
+    <section id="vista-outfit" class="vista" aria-labelledby="titolo-outfit" hidden>
+      <div class="pagina">
+        <div class="titolo-home"><h2 class="vista-titolo" id="titolo-outfit" tabindex="-1">Outfit</h2><p class="frase">Abbinamenti fatti con quello che hai già, dando la precedenza ai capi fermi.</p></div>
+        <form class="riquadro" id="form-sugg" novalidate>
+          <h3>Suggeriscimi un outfit</h3>
+          <div class="campo">
+            <label for="sugg-testo">Per che occasione? (facoltativo)</label>
+            <textarea id="sugg-testo" rows="2" maxlength="500" autocomplete="off" placeholder="Per esempio: ufficio, piove, niente tacchi"></textarea>
+          </div>
+          <div class="azioni"><button type="submit" class="btn btn--primario" id="sugg-invia"><svg class="icon icon--s" aria-hidden="true"><use href="#i-stella"/></svg>Suggeriscimi</button></div>
+        </form>
+        <div id="sugg-risposta" aria-live="polite"></div>
+        <section class="rip"><h3><span class="rip-nome">I miei outfit</span><span class="rip-n" id="outfit-n">0</span></h3><div id="lista-outfit"></div></section>
+      </div>
+    </section>
+
+    <!-- IO -->
+    <section id="vista-io" class="vista" aria-labelledby="titolo-io" hidden>
+      <div class="pagina">
+        <div class="titolo-home"><h2 class="vista-titolo" id="titolo-io" tabindex="-1">Io</h2>
+          <p class="frase">Le tue foto restano su questo telefono. Vanno a Claude solo quando chiedi un parere.</p></div>
+        <section class="rip"><h3><span class="rip-nome">Le mie foto</span><span class="rip-n" id="foto-n">0</span></h3>
+          <div class="galleria-io" id="galleria-io"></div>
+          <div class="azioni"><label class="btn btn--contorno" for="file-io-scatta"><svg class="icon icon--s" aria-hidden="true"><use href="#i-camera"/></svg>Scatta</label>
+            <label class="btn btn--contorno" for="file-io-galleria"><svg class="icon icon--s" aria-hidden="true"><use href="#i-galleria"/></svg>Dalla galleria</label></div>
+          <input class="visually-hidden" type="file" id="file-io-scatta" accept="image/*" capture="user">
+          <input class="visually-hidden" type="file" id="file-io-galleria" accept="image/*" multiple>
+          <p class="aiuto-campo">Meglio una foto a figura intera, con luce buona e sfondo semplice.</p>
+        </section>
+        <form class="riquadro" id="form-parere" novalidate>
+          <h3>Come mi sta?</h3>
+          <div class="campo"><label for="parere-outfit">Quale outfit?</label><select id="parere-outfit"></select></div>
+          <div class="campo"><label for="parere-testo">Cosa vuoi sapere? (facoltativo)</label>
+            <textarea id="parere-testo" rows="2" maxlength="500" autocomplete="off" placeholder="Per esempio: va bene per una cena? Con che scarpe?"></textarea></div>
+          <div class="azioni"><button type="submit" class="btn btn--primario" id="parere-invia"><svg class="icon icon--s" aria-hidden="true"><use href="#i-stella"/></svg>Chiedi un parere</button></div>
+          <p class="aiuto-campo">È un parere di stile: Claude non disegna te con il capo addosso, e da una foto non può sapere come cade davvero. Provalo sempre davanti allo specchio.</p>
+        </form>
+        <div id="parere-risposta" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- IMPOSTAZIONI -->
+    <section id="vista-impostazioni" class="vista" aria-labelledby="titolo-impostazioni" hidden>
+      <div class="indietro-riga"><button type="button" class="indietro" data-torna><svg class="icon icon--s" aria-hidden="true"><use href="#i-indietro"/></svg>Il mio armadio</button></div>
+      <h2 class="vista-titolo" id="titolo-impostazioni" tabindex="-1">Impostazioni</h2>
+      <div class="gruppo">
+        <h2>Codice personale</h2>
+        <p>Serve per gli aiuti di Claude (riconoscere un capo, suggerire outfit, un parere su di te). È lo stesso dell'app «Lidia Cooking Code».</p>
+        <div class="campo"><label for="codice-personale">Codice</label>
+          <input type="password" id="codice-personale" autocomplete="off" autocapitalize="off" spellcheck="false"><p class="aiuto-campo" id="stato-codice" role="status"></p></div>
+      </div>
+      <div class="gruppo">
+        <h2>Capi fermi</h2>
+        <p>Un capo è «fermo» se non lo metti da questo numero di giorni.</p>
+        <div class="campo"><label for="soglia-giorni">Giorni</label><input type="number" id="soglia-giorni" inputmode="numeric" min="14" max="365" value="60"></div>
+      </div>
+      <div class="gruppo">
+        <h2>I tuoi dati</h2>
+        <p>Capi e foto sono salvati solo su questo telefono. Scarica ogni tanto una copia, così non perdi niente se cambi telefono.</p>
+        <div class="azioni"><button type="button" class="btn" id="btn-esporta">Scarica una copia</button>
+          <label class="btn" for="file-importa">Ripristina da una copia</label><input class="visually-hidden" type="file" id="file-importa" accept=".json,application/json"></div>
+        <p id="stato-dati" role="status"></p>
+        <button type="button" class="btn btn--pericolo" id="btn-cancella-tutto">Cancella tutto</button>
+      </div>
+      <div class="gruppo"><h2>Informazioni</h2><p id="versione"></p></div>
+    </section>
+  </main>
+
+  <div class="azioni-fisse" id="azioni-fisse">
+    <button type="button" class="btn btn--contorno" id="btn-outfit-nuovo"><svg class="icon icon--s" aria-hidden="true"><use href="#i-attaccapanni"/></svg>Crea outfit</button>
+    <button type="button" class="btn btn--primario" id="btn-capo-nuovo"><svg class="icon icon--s" aria-hidden="true"><use href="#i-piu"/></svg>Aggiungi capo</button>
+  </div>
+
+  <div id="area-toast" aria-live="polite"></div>
+
+  <!-- Capo: nuovo o da modificare -->
+  <dialog id="dlg-capo" aria-labelledby="capo-titolo">
+    <form id="form-capo" novalidate>
+      <div class="finestra-testa"><h2 id="capo-titolo">Nuovo capo</h2>
+        <button type="button" class="icona-btn" id="capo-chiudi" aria-label="Chiudi senza salvare"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+      <div class="finestra-corpo">
+        <div class="foto-capo" id="foto-capo"><span class="foto-vuota"><svg class="icon" aria-hidden="true"><use href="#i-attaccapanni"/></svg>Nessuna foto</span></div>
+        <div class="azioni">
+          <label class="btn btn--contorno btn--piccolo" for="file-capo-scatta"><svg class="icon icon--s" aria-hidden="true"><use href="#i-camera"/></svg>Scatta</label>
+          <label class="btn btn--contorno btn--piccolo" for="file-capo-galleria"><svg class="icon icon--s" aria-hidden="true"><use href="#i-galleria"/></svg>Galleria</label>
+          <button type="button" class="btn btn--piccolo" id="btn-riconosci" hidden><svg class="icon icon--s" aria-hidden="true"><use href="#i-stella"/></svg>Riconosci con Claude</button>
+        </div>
+        <input class="visually-hidden" type="file" id="file-capo-scatta" accept="image/*" capture="environment">
+        <input class="visually-hidden" type="file" id="file-capo-galleria" accept="image/*">
+        <p class="aiuto-campo" id="capo-stato" role="status"></p>
+        <div class="campo"><label for="c-nome">Nome</label><input type="text" id="c-nome" autocomplete="off" maxlength="80" aria-describedby="e-c-nome"><p class="errore" id="e-c-nome" role="alert" hidden></p></div>
+        <div class="riga-campi">
+          <div class="campo"><label for="c-categoria">Tipo</label><select id="c-categoria"></select></div>
+          <div class="campo"><label for="c-marca">Marca</label><input type="text" id="c-marca" autocomplete="off" maxlength="60"></div>
+        </div>
+        <div class="campo"><label for="c-colori">Colori (separati da virgola)</label><input type="text" id="c-colori" autocomplete="off" placeholder="bianco, blu navy"></div>
+        <fieldset class="campo"><legend>Stagioni</legend><div class="spunte" id="c-stagioni"></div></fieldset>
+        <fieldset class="campo"><legend>Occasioni</legend><div class="spunte" id="c-occasioni"></div></fieldset>
+        <div class="campo" id="campo-ultimo-uso"><label for="c-ultimo-uso">Quando l'hai messo l'ultima volta?</label><select id="c-ultimo-uso"></select>
+          <p class="aiuto-campo">Serve a capire quali capi sono fermi e da rimettere in gioco.</p></div>
+        <div class="campo"><label for="c-note">Note</label><textarea id="c-note" rows="2" maxlength="300" autocomplete="off"></textarea></div>
+      </div>
+      <div class="finestra-piede">
+        <button type="submit" class="btn btn--primario" id="c-salva">Salva</button>
+        <button type="button" class="btn btn--pericolo" id="c-elimina" hidden><svg class="icon icon--s" aria-hidden="true"><use href="#i-cestino"/></svg>Elimina</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Elenco dei capi scritto a parole -->
+  <dialog id="dlg-elenco" aria-labelledby="el-titolo">
+    <form id="form-elenco" novalidate>
+      <div class="finestra-testa"><h2 id="el-titolo">Scrivi l'elenco</h2>
+        <button type="button" class="icona-btn" id="el-chiudi" aria-label="Chiudi"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+      <div class="finestra-corpo">
+        <p class="dp-dove">Scrivi (o detta con il microfono della tastiera) quello che hai: un capo per riga, o separati da virgole. Niente foto.</p>
+        <div class="campo"><label for="el-testo">I tuoi capi</label>
+          <textarea id="el-testo" rows="7" maxlength="4000" autocomplete="off" placeholder="jeans blu, 3 magliette bianche, camicia a righe, blazer nero, sneakers bianche, stivaletti neri, borsa marrone"></textarea></div>
+        <p class="aiuto-campo" id="el-stato" role="status"></p>
+        <div id="el-anteprima" class="el-anteprima"></div>
+      </div>
+      <div class="finestra-piede">
+        <button type="submit" class="btn btn--contorno" id="el-vai"><svg class="icon icon--s" aria-hidden="true"><use href="#i-stella"/></svg>Trasforma in capi</button>
+        <button type="button" class="btn btn--primario" id="el-aggiungi" hidden>Aggiungi</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Un capo aperto -->
+  <dialog id="dlg-dettaglio" aria-labelledby="d-titolo">
+    <div class="finestra-testa"><h2 id="d-titolo"></h2>
+      <button type="button" class="icona-btn" id="d-chiudi" aria-label="Chiudi"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+    <div class="finestra-corpo">
+      <div class="foto-capo foto-capo--grande" id="d-foto"></div>
+      <div class="fascia f3" id="d-fascia"></div>
+      <div class="dp-stato" id="d-tag"></div>
+      <p class="dp-dove" id="d-note"></p>
+    </div>
+    <div class="finestra-piede">
+      <button type="button" class="btn btn--primario" id="d-oggi"><svg class="icon icon--s" aria-hidden="true"><use href="#i-ok"/></svg>Messo oggi</button>
+      <button type="button" class="btn btn--contorno" id="d-abbina"><svg class="icon icon--s" aria-hidden="true"><use href="#i-stella"/></svg>Abbinalo</button>
+      <button type="button" class="btn btn--contorno" id="d-modifica"><svg class="icon icon--s" aria-hidden="true"><use href="#i-modifica"/></svg>Modifica</button>
+    </div>
+  </dialog>
+
+  <!-- Outfit: nuovo o da modificare -->
+  <dialog id="dlg-outfit" aria-labelledby="o-titolo">
+    <form id="form-outfit" novalidate>
+      <div class="finestra-testa"><h2 id="o-titolo">Nuovo outfit</h2>
+        <button type="button" class="icona-btn" id="o-chiudi" aria-label="Chiudi senza salvare"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+      <div class="finestra-corpo">
+        <div class="riga-campi">
+          <div class="campo"><label for="o-nome">Nome</label><input type="text" id="o-nome" autocomplete="off" maxlength="80" placeholder="Per esempio Ufficio blu"></div>
+          <div class="campo"><label for="o-occasione">Occasione</label><select id="o-occasione"></select></div>
+        </div>
+        <fieldset class="campo"><legend>Scegli i capi (<span id="o-conta">0</span>)</legend><div class="scegli-capi" id="o-capi"></div></fieldset>
+        <p class="errore" id="e-o-capi" role="alert" hidden></p>
+      </div>
+      <div class="finestra-piede">
+        <button type="submit" class="btn btn--primario">Salva outfit</button>
+        <button type="button" class="btn btn--pericolo" id="o-elimina" hidden><svg class="icon icon--s" aria-hidden="true"><use href="#i-cestino"/></svg>Elimina</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Conferma generica -->
+  <dialog id="conferma" aria-labelledby="conferma-titolo">
+    <div class="finestra-testa"><h2 id="conferma-titolo"></h2></div>
+    <div class="finestra-corpo"><p id="conferma-testo"></p></div>
+    <div class="finestra-piede">
+      <button type="button" class="btn btn--primario" id="conferma-ok"></button>
+      <button type="button" class="btn" id="conferma-alt" hidden></button>
+      <button type="button" class="btn" id="conferma-annulla">Annulla</button>
+    </div>
+  </dialog>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

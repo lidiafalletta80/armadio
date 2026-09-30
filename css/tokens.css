@@ -1,0 +1,136 @@
+/* Palette dell'utente: viola scuro, rosso intenso, arancio, foglia, verde petrolio.
+ * Ogni colore e ogni font passano da qui; app.css non usa valori diretti.
+ * Layout: pagine da sfogliare (Tutti, un mobile per pagina, Cucina), fascia dati arancio. Font Roboto, sfondo bianco. */
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/roboto-latin-wght.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  color-scheme: light dark;
+
+  --font-body: "Roboto", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --font-text: var(--font-body);
+
+  /* Palette dell'utente (tinte piene) */
+  --color-viola: #5f0f40;
+  --color-rosso: #9a031e;
+  --color-arancio: #fb8b24;
+  --color-foglia: #e36414;
+  --color-petrolio: #0f4c5c;
+  /* Derivato dal petrolio, per il Freezer: nella palette non c'è un secondo colore freddo */
+  --color-ghiaccio: #2f7fa0;
+  /* Varianti per testi e linee sottili: leggibili (≥ 4.5:1) sulla carta */
+  --color-viola-t: #5f0f40;
+  --color-rosso-t: #9a031e;
+  --color-foglia-t: #a94708;
+  --color-petrolio-t: #0f4c5c;
+  --color-ghiaccio-t: #1d5f7d;
+  --color-arancio-t: #8a4a00;
+
+  /* Carta e inchiostro, tinti verso il viola */
+  --color-paper: #ffffff;
+  --color-paper-2: #f5f2ee;
+  --color-paper-3: #ebe6df;
+  --color-surface: #ffffff;
+  --color-ink: #2b0b1f;
+  --color-ink-2: #6a4a5c;
+  --color-line: #dcd3c8;
+  --color-sel: #fde0b8;
+
+  /* Compatibilità con i nomi usati in app.css */
+  --color-accent: var(--color-arancio);
+  --color-accent-deep: var(--color-foglia);
+  --color-on-accent: var(--color-ink);
+  --color-primary: var(--color-viola);
+  --color-on-primary: #fff4ea;
+  --color-link: var(--color-petrolio-t);
+  --color-focus: #1d5f7d;
+
+  /* Stati: sfondo tenue + testo scuro. Il significato sta sempre anche nel testo e nella forma dell'icona. */
+  --color-scaduto-bg: #fbdfe2;
+  --color-scaduto-fg: var(--color-rosso-t);
+  --color-oggi-bg: #ffe3c4;
+  --color-oggi-fg: var(--color-foglia-t);
+  --color-entro3-bg: #ffedd0;
+  --color-entro3-fg: var(--color-arancio-t);
+  --color-ok-bg: #d8ebf0;
+  --color-ok-fg: var(--color-petrolio-t);
+  --color-senza-bg: #efe6df;
+  --color-senza-fg: var(--color-ink-2);
+
+  --color-danger: var(--color-rosso-t);
+  --color-camera-bg: #1a0a14;
+  --color-camera-fg: #fff4ea;
+  --color-shadow: oklch(20% 0.04 350 / 0.14);
+  --color-velo: oklch(14% 0.03 350 / 0.5);
+
+  /* Scala spazi a 4 pt */
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  --radius-s: 0;
+  --radius-m: 0;
+  --radius-l: 0;
+  --radius-pill: 0;
+
+  /* Testi: i titoli restano contenuti */
+  --text-xs: 0.875rem;
+  --text-s: 1rem;
+  --text-m: 1.125rem;
+  --text-l: 1.25rem;
+  --text-xl: 1.625rem;
+  --text-titolo: 2.25rem;
+  --text-stat: 1.5rem;
+
+  --tap: 48px; /* area toccabile: mai sotto i 44 px */
+
+  --ease-out: cubic-bezier(0.2, 0.7, 0.3, 1);
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+
+  --azioni-h: 76px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-viola: #8a2a66;
+    --color-rosso: #c4243c;
+    --color-ghiaccio: #2b6f8f;
+    --color-viola-t: #e9a3cc;
+    --color-rosso-t: #ff8494;
+    --color-foglia-t: #ffa062;
+    --color-petrolio-t: #74c3d4;
+    --color-ghiaccio-t: #8fcbe6;
+    --color-arancio-t: #ffb35c;
+
+    --color-paper: #1c0a15;
+    --color-paper-2: #2a1220;
+    --color-paper-3: #351a29;
+    --color-surface: #24101c;
+    --color-ink: #fdeee3;
+    --color-ink-2: #c7a8b8;
+    --color-line: #472a3a;
+    --color-sel: #4a2a1c;
+    --color-on-primary: #fff4ea;
+    --color-focus: #8fcbe6;
+
+    --color-scaduto-bg: #4a1622;
+    --color-oggi-bg: #4a2a1c;
+    --color-entro3-bg: #43301a;
+    --color-ok-bg: #14343d;
+    --color-senza-bg: #2f1e2a;
+
+    --color-shadow: oklch(5% 0.02 350 / 0.5);
+    --color-velo: oklch(8% 0.03 350 / 0.62);
+  }
+}
